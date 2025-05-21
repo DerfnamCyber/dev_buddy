@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<style>
+    .home-container{
+        display:grid;
+        grid-template-columns : 1fr 3fr 1fr;
+    }
+</style>
+
+
+
+<div class="home-container">
+
+    <div>
+        {% include 'base/topics_component.html' %}
+    </div>
+
+        
+    <div>
+        <h5>{{ room_count }} rooms available </h5>
+        <a href="{% url 'create-room' %}">Create Room</a>
+
+        {% include 'base/feed_component.html' %}
+    </div>
+
+
+    <div>
+        {% include 'base/activity_component.html' %}
+    </div>
+
+
+</div>   
+{% endblock %}
+
+{% comment "dynamic urls" %}
+        In the urlpatterns the name set to the url can be accessed so that 
+        when the path is change in urls.py, there's no need to change it throughout 
+        the code.
+        <a href="{% url 'room' room.id%}"> -- 'room' is the name of the url set in urls.py
+
+
+        USING A QUERY FOR A LINk   :     <a href="{% url 'home' %}?q={{ topic.name }}">{{ topic }}</a>
+{% endcomment %}
