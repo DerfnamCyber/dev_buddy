@@ -122,7 +122,7 @@
           </div>
           {% if request.user.is_authenticated %}
           <div class="room__message">
-            <form action="#" method='POST'>
+            <form action="" method='POST'>
               {% csrf_token %}
               <input type="text" name="body" placeholder="Write your message here..." />
             </form>
